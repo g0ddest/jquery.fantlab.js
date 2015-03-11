@@ -1,0 +1,19 @@
+{
+  "name": "jquery.fantlab.js",
+  "version": "1.0.0",
+  "homepage": "https://github.com/g0ddest/jquery.fantlab.js",
+  "authors": [
+    "veet"
+  ],
+  "description": "Fantlab jQuery library",
+  "main": "dist/jquery.fantlab.min.js",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "fantlab.jquery.js",
+  "version": "1.0.0",
+  "description": "jQuery library for fantlab",
+  "main": "/dist/jquery.fantlab.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/g0ddest/jquery.fantlab.js.git"
+  },
+  "author": "veet",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/g0ddest/jquery.fantlab.js/issues"
+  },
+  "homepage": "https://github.com/g0ddest/jquery.fantlab.js",
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-concat": "^2.5.2",
+    "gulp-connect": "^2.2.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-uglify": "^1.1.0",
+    "path": "^0.11.14"
+  }
+}
