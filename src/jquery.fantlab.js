@@ -144,7 +144,9 @@
                                 var publishers = [];
                                 if(typeof this.publishers !== "undefined")
                                     $.each(this.publishers[0].publisher, function () {
-                                            publishers.push("<a href='" + options.host + "publisher" + this.id + "'>" + this.content + "</a>");
+                                        this.id ?
+                                            publishers.push("<a href='" + options.host + "publisher" + this.id + "'>" + this.content + "</a>") :
+                                            publishers.push(this.content);
                                     });
                                 publishers = publishers.join(', ');
                                 var text = options.corner + "<a href='" + options.host + "edition" + this.id + "'><img style='border: 0;float:left; padding-right: 10px;' src='" + this.cover_mini + "'></a>" +
