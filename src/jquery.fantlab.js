@@ -1,6 +1,6 @@
 (function($) {
     var defaults = {
-                host: "http://fantlab.ru/",
+                host: "/",
 		search: "https://api.fantlab.ru/search.json?",
 		params_in_class: false,
 		cross_domain: true,
@@ -71,7 +71,7 @@
                                 var autors = [];
                                 $.each(this.autors[0].autor, function() {
                                         (typeof this.autor_id !== "undefined") ?
-                                            autors.push('<a traget="_blank" style="color: blue; text-decoration: none; font-size: 10px;" href="' + options.host + 'autor' + this.autor_id + '">' + this.content + "</a>") :
+                                            autors.push('<a href="' + options.host + 'autor' + this.autor_id + '">' + this.content + "</a>") :
                                             autors.push( this.content );
                                 });
                                 autors = autors.join(', ');
@@ -81,7 +81,11 @@
                                 var year = this.year[0];
                                 var rating = this.rating ? this.rating[0].content : 0;
                                 var voters = this.rating ? this.rating[0].voters : 0;
-                                var text = options.corner + "<a target='_blank' style='border: 0;text-decoration:none;' href='" + options.host + "work" + this.id + "'><img style='border: 0;float:left; padding-right: 10px;' src='" + imgsmall + "'></a><p style='vertical-align: top;margin: 0;text-indent:0;'>" + autors + "</p><a target='_blank' style='font-size: 12px;text-decoration:none; font-weight: bold; color: #000;' href='" + options.host + "work" + this.id + "'>" + rusname + "</a>" + (year>0?" <span style='font-size: 10px;'>(" + year + ")</span>":"") +"<br><b style='font-size: 20px; padding-top: 4px;'><span style='color: #C45E24'>" + rating + "</span><span style='color: gray;'> / 10</span></b><br><span style='font-size: 11px;'>оценили: " + voters + "<br/><span style='float:right;'><!--a target='_blank' style='color: gray; text-decoration: none; border-bottom: 1px gray dotted;' href='" + options.host + "work" + this.id + "'>fantlab.ru</a--></span></span>";
+                                var text = options.corner + 
+"<a style='border: 0;text-decoration:none;' href='" + options.host + "work" + this.id + "'><img style='border: 0;float:left; padding-right: 10px;' src='" + imgsmall + "'></a>" + 
+"<p style='vertical-align: top;margin: 0;text-indent:0;margin-bottom:3px'>" + autors + "</p>" + 
+"<p style='vertical-align: top;margin: 0;text-indent:0;margin-bottom:8px'><a style='font-size: 12px;font-weight: bold' href='" + options.host + "work" + this.id + "'>" + rusname + "</a>" + (year>0?" (" + year + " г.)":"") + "</p>" + 
+"<p style='vertical-align: top;margin: 0;text-indent:0;margin-bottom:3px'>Рейтинг: " + (voters>0 ? rating + " (" + voters + ")" : "-") + "</p>";
 
                                 var self = this;
 
@@ -117,7 +121,7 @@
                                 var autors = [];
                                 $.each(this.autors[0].autor, function() {
                                         (typeof this.autor_id !== "undefined") ?
-                                            autors.push('<a traget="_blank" style="color: blue; text-decoration: none; font-size: 10px;" href="' + options.host + 'autor' + this.autor_id + '">' + this.content + "</a>") :
+                                            autors.push('<a href="' + options.host + 'autor' + this.autor_id + '">' + this.content + "</a>") :
                                             autors.push( this.content );
                                 });
                                 autors = autors.join(' ');
@@ -140,10 +144,16 @@
                                 var publishers = [];
                                 if(typeof this.publishers !== "undefined")
                                     $.each(this.publishers[0].publisher, function () {
-                                            publishers.push("<a target='_blank' style='text-decoration:none; color: blue;' href='" + options.host + "publisher" + this.id + "'>" + this.content + "</a>");
+                                            publishers.push("<a href='" + options.host + "publisher" + this.id + "'>" + this.content + "</a>");
                                     });
                                 publishers = publishers.join(', ');
-                                var text = options.corner + "<a target='_blank' style='border: 0;text-decoration:none;' href='" + options.host + "edition" + this.id + "'><img style='border: 0;float:left; padding-right: 10px;' src='" + this.cover_mini + "'></a><p style='margin: 0 0 5px 0;vertical-align: top;text-indent: 0;'>" + autors + "</p><p style='margin: 0 0 5px 0;'><a target='_blank' style='font-size: 12px;text-decoration:none; font-weight: bold; color: #000; margin: 5px 0;' href='" + options.host + "edition" + this.id + "'>" + origname + "</a></p><span style='font-size: 10px;'>" + publishers + ", " + year + " г.<br/>Тираж: " + copies + "<br/>ISBN: " + isbns + "<br/>Страниц: " + pages + "</span><span style='float:right;'><!--a traget='_blank' style='color: gray; text-decoration: none; border-bottom: 1px gray dotted; font-size: 13px;' href='" + options.host + "edition" + this.id + "'>fantlab.ru</a--></span>" ;
+                                var text = options.corner + "<a href='" + options.host + "edition" + this.id + "'><img style='border: 0;float:left; padding-right: 10px;' src='" + this.cover_mini + "'></a>" +
+"<p style='margin-bottom:5px;text-indent:0;'>" + autors + "</p>" + 
+"<p style='margin-bottom:5px;text-indent:0;'><a style='font-size: 12px;font-weight: bold; margin: 5px 0;' href='" + options.host + "edition" + this.id + "'>" + origname + "</a></p>" + 
+"<p style='font-size:10px;margin-bottom:2px;text-indent:0;'>" + publishers + ", " + year + " г.</p>" +
+"<p style='font-size:10px;margin-bottom:2px;text-indent:0;'>Тираж: " + copies + "</p>" + 
+"<p style='font-size:10px;margin-bottom:2px;text-indent:0;'>ISBN: " + isbns + "</p>" +
+"<p style='font-size:10px;margin-bottom:2px;text-indent:0;'>Страниц: " + pages + "</p>" ;
 
                                 var self = this;
 
