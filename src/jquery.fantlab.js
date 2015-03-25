@@ -76,8 +76,6 @@
                                 });
                                 autors = autors.join(', ');
 
-                                console.log(this)
-
                                 var imgsmall = this.imgsmall ? this.imgsmall[0] : "//data.fantlab.ru/images/editions/small/0";
                                 var rusname = this.rusname[0];
                                 var year = this.year[0];
