@@ -34,7 +34,6 @@
 	});
 
         var obj = this;
-        console.log(obj);
         var se = [];
         var sw = [];
 
@@ -76,11 +75,14 @@
                                             autors.push( this.content );
                                 });
                                 autors = autors.join(', ');
-                                var imgsmall = this.imgsmall[0];
+
+                                console.log(this)
+
+                                var imgsmall = this.imgsmall ? this.imgsmall[0] : "//data.fantlab.ru/images/editions/small/0";
                                 var rusname = this.rusname[0];
                                 var year = this.year[0];
-                                var rating = this.rating[0].content;
-                                var voters = this.rating[0].voters;
+                                var rating = this.rating ? this.rating[0].content : 0;
+                                var voters = this.rating ? this.rating[0].voters : 0;
                                 var text = options.corner + "<a target='_blank' style='border: 0;text-decoration:none;' href='" + options.host + "work" + this.id + "'><img style='border: 0;float:left; padding-right: 10px;' src='" + imgsmall + "'></a><p style='vertical-align: top;margin: 0;'>" + autors + "</p><a target='_blank' style='font-size: 12px;text-decoration:none; font-weight: bold; color: #000;' href='" + options.host + "work" + this.id + "'>" + rusname + "</a>" + (year>0?" <span style='font-size: 10px;'>(" + year + ")</span>":"") +"<br><b style='font-size: 20px; padding-top: 4px;'><span style='color: #C45E24'>" + rating + "</span><span style='color: gray;'> / 10</span></b><br><span style='font-size: 11px;'>оценили: " + voters + "<br/><span style='float:right;'><!--a target='_blank' style='color: gray; text-decoration: none; border-bottom: 1px gray dotted;' href='" + options.host + "work" + this.id + "'>fantlab.ru</a--></span></span>";
 
                                 var self = this;
