@@ -81,8 +81,8 @@
                                 var year = this.year[0];
                                 var rating = this.rating ? this.rating[0].content : 0;
                                 var voters = this.rating ? this.rating[0].voters : 0;
+//"<a style='border: 0;text-decoration:none;' href='" + options.host + "work" + this.id + "'><img style='border: 0;float:left; padding-right: 10px;' src='" + imgsmall + "'></a>" + 
                                 var text = options.corner + 
-"<a style='border: 0;text-decoration:none;' href='" + options.host + "work" + this.id + "'><img style='border: 0;float:left; padding-right: 10px;' src='" + imgsmall + "'></a>" + 
 "<p style='vertical-align: top;margin: 0;text-indent:0;margin-bottom:3px'>" + autors + "</p>" + 
 "<p style='vertical-align: top;margin: 0;text-indent:0;margin-bottom:8px'><a style='font-size: 12px;font-weight: bold' href='" + options.host + "work" + this.id + "'>" + rusname + "</a>" + (year>0?" (" + year + " г.)":"") + "</p>" + 
 "<p style='vertical-align: top;margin: 0;text-indent:0;margin-bottom:3px'>Рейтинг: " + (voters>0 ? rating + " (" + voters + ")" : "-") + "</p>";
