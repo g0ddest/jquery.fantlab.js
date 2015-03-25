@@ -77,7 +77,7 @@
                                 autors = autors.join(', ');
 
                                 var imgsmall = this.imgsmall ? this.imgsmall[0] : "//data.fantlab.ru/images/editions/small/0";
-                                var rusname = this.rusname[0];
+                                var rusname = (this.rusname && this.rusname[0]) ? this.rusname[0] : this.origname[0];
                                 var year = this.year[0];
                                 var rating = this.rating ? this.rating[0].content : 0;
                                 var voters = this.rating ? this.rating[0].voters : 0;
