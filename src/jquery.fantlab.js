@@ -78,22 +78,24 @@
                                 autors = autors.join(', ');
 
                                 var imgsmall = this.imgsmall ? this.imgsmall[0] : "//data.fantlab.ru/images/editions/small/0";
-                                var rusname = (this.rusname && this.rusname[0]) ? 
-                                    "<a style='font-size: 12px;font-weight: bold' href='" + options.host + "work" + this.id + "'>" + this.rusname[0] + "</a>" +
-                                    (this.origname[0] ? "<b> / " + this.origname[0] + "</b>" : '') : "<a style='font-size: 12px;font-weight: bold' href='" + options.host + "work" + this.id + "'>" + this.origname[0] + "</a>";
-//                                var year = this.year[0];
+                                var rusname = (this.rusname && this.rusname[0]) ? "<a style='font-size: 12px;font-weight: bold' href='" + options.host + "work" + this.id + "'>" + this.rusname[0] + "</a>" : "";
+                                var name = "-";
+                                if (this.origname && this.origname[0]) {
+                                  if (rusname && rusname!=="") { name = this.origname[0] } 
+                                  else { name = "<a style='font-size: 12px;font-weight: bold' href='" + options.host + "work" + this.id + "'>" + this.origname[0] + "</a>"; }
+                                }
                                 var rating = this.rating ? this.rating[0].content : 0;
                                 var voters = this.rating ? this.rating[0].voters : 0;
                                 var type_year = this.worktype[0]?this.worktype[0]:'';
                                 type_year += (type_year && this.year[0]>0)?', ':'';
                                 type_year += this.year[0]>0?this.year[0]+' г.':'';
-                                if (type_year) { type_year = ' (' + type_year + ')' }
                
-//"<a style='border: 0;text-decoration:none;' href='" + options.host + "work" + this.id + "'><img style='border: 0;float:left; padding-right: 10px;' src='" + imgsmall + "'></a>" + 
                                 var text = options.corner + 
-"<p style='vertical-align: top;margin: 0;text-indent:0;margin-bottom:5px'>" + autors + "</p>" + 
-"<p style='vertical-align: top;margin: 0;text-indent:0;margin-bottom:8px'>" + rusname + type_year + "</p>" +
-"<p style='vertical-align: top;margin: 0;text-indent:0;margin-bottom:3px'>Рейтинг: " + (voters>0 ? "<b>"+rating+"</b>" + " (" + voters + ")" : "-") + "</p>";
+(autors?"<p style='vertical-align: top;margin: 0;text-indent:0;margin-bottom:5px'>" + autors + "</p>":"") + 
+(rusname?"<p style='vertical-align: top;margin: 0;text-indent:0;margin-bottom:" + (name?"2":"8") + "px'>" + rusname + "</p>":"") +
+(name?"<p style='vertical-align: top;margin: 0;text-indent:0;margin-bottom:5px'>" + name + "</p>":"") +
+(type_year?"<p style='vertical-align: top;margin: 0;text-indent:0;margin-bottom:5px'>" + type_year + "</p>":"") +
+"<p style='vertical-align: top;margin: 0;text-indent:0;margin-bottom:3px'>Рейтинг: " + (voters>0 ? "<font color=#C45E24><b>"+rating+"</b></font>" + " <font size=-2 color=gray>(" + voters + ")</font>" : "-") + "</p>";
 
                                 var self = this;
 
