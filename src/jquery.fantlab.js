@@ -85,8 +85,8 @@
                                 var rating = this.rating ? this.rating[0].content : 0;
                                 var voters = this.rating ? this.rating[0].voters : 0;
                                 var type_year = this.worktype[0]?this.worktype[0]:'';
-                                type_year += type_year?', ':'';
-                                type_year += this.year[0]?this.year[0]+' г.':'';
+                                type_year += (type_year && this.year[0]>0)?', ':'';
+                                type_year += this.year[0]>0?this.year[0]+' г.':'';
                                 if (type_year) { type_year = ' (' + type_year + ')' }
                
 //"<a style='border: 0;text-decoration:none;' href='" + options.host + "work" + this.id + "'><img style='border: 0;float:left; padding-right: 10px;' src='" + imgsmall + "'></a>" + 
