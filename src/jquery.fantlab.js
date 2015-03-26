@@ -160,10 +160,10 @@
                                 var text = options.corner + "<a href='" + options.host + "edition" + this.id + "'><img style='border: 0;float:left; padding-right: 10px;' src='" + this.cover_mini + "'></a>" +
 "<p style='margin-bottom:5px;text-indent:0;'>" + autors + "</p>" + 
 "<p style='margin-bottom:5px;text-indent:0;'><a style='font-size: 12px;font-weight: bold; margin: 5px 0;' href='" + options.host + "edition" + this.id + "'>" + origname + "</a></p>" + 
-"<p style='font-size:10px;margin-bottom:2px;text-indent:0;'>" + publishers + ", " + year + " г.</p>" +
-"<p style='font-size:10px;margin-bottom:2px;text-indent:0;'>Тираж: " + copies + "</p>" + 
-"<p style='font-size:10px;margin-bottom:2px;text-indent:0;'>ISBN: " + isbns + "</p>" +
-"<p style='font-size:10px;margin-bottom:2px;text-indent:0;'>Страниц: " + pages + "</p>" ;
+((publishers||year)?"<p style='font-size:10px;margin-bottom:2px;text-indent:0;'>" + publishers + (year?(publishers?", ":"") + year + " г.":"") + "</p>":'') +
+(copies?"<p style='font-size:10px;margin-bottom:2px;text-indent:0;'>Тираж: " + copies + "</p>":'') + 
+(isbns?"<p style='font-size:10px;margin-bottom:2px;text-indent:0;'>ISBN: " + isbns + "</p>":'') +
+(pages?"<p style='font-size:10px;margin-bottom:2px;text-indent:0;'>Страниц: " + pages + "</p>":'') ;
 
                                 var self = this;
 
