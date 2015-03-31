@@ -141,7 +141,11 @@
                                     copies = this.copies[0];
                                 var pages = "";
                                 if(typeof this.pages !== "undefined")
-                                    pages = this.pages[0];
+                                    if(this.editiontype !== "undefined" && this.editiontype[0] === "аудиокнига"){
+                                        pages = "Продолжительность: " + (this.pages[0] >= 60 ? Math.floor(this.pages[0]/60) + "ч. " : "" ) + this.pages[0] % 60 + "мин."
+                                    }else{
+                                        pages = "Страниц: " + this.pages[0];
+                                    }
                                 var year = "";
                                 if(typeof this.year !== "undefined")
                                     var year = this.year[0];
@@ -165,7 +169,7 @@
 ((publishers||year)?"<p style='font-size:10px;margin-bottom:2px;text-indent:0;'>" + publishers + (year?(publishers?", ":"") + year + " г.":"") + "</p>":'') +
 (copies?"<p style='font-size:10px;margin-bottom:2px;text-indent:0;'>Тираж: " + copies + "</p>":'') + 
 (isbns?"<p style='font-size:10px;margin-bottom:2px;text-indent:0;'>ISBN: " + isbns + "</p>":'') +
-(pages?"<p style='font-size:10px;margin-bottom:2px;text-indent:0;'>Страниц: " + pages + "</p>":'') ;
+(pages?"<p style='font-size:10px;margin-bottom:2px;text-indent:0;'>" + pages + "</p>":'') ;
 
                                 var self = this;
 
